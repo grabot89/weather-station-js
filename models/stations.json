@@ -1,0 +1,9 @@
+{
+  "file": "./models/stations.json",
+  "stations": [
+    {
+      "title": "Castlebar",
+      "_id": "154e9794-4bc4-4d09-904e-ffb4abc001ae"
+    }
+  ]
+}
