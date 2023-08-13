@@ -2,8 +2,16 @@
   "file": "./models/stations.json",
   "stations": [
     {
-      "title": "Castlebar",
+      "name": "Castlebar",
       "_id": "154e9794-4bc4-4d09-904e-ffb4abc001ae"
+    },
+    {
+      "name": "Tramore",
+      "_id": "187b773b-ec37-49b3-9aff-2fe65ce9fdc3"
+    },
+    {
+      "name": "Mallow",
+      "_id": "68dda314-c20e-4eba-b9f9-8483935363bc"
     }
   ]
 }

@@ -1,0 +1,23 @@
+{
+  "file": "./models/readings.json",
+  "readings": [
+    {
+      "code": 700,
+      "temperature": 12.5,
+      "windSpeed": 85.7,
+      "windDirection": 123,
+      "pressure": 999,
+      "_id": "da49a197-fd2a-4a56-9179-dcd04f2a7e6d",
+      "stationId": "187b773b-ec37-49b3-9aff-2fe65ce9fdc3"
+    },
+    {
+      "code": 200,
+      "temperature": 18,
+      "windSpeed": 105.2,
+      "windDirection": 310,
+      "pressure": 1004,
+      "_id": "8e0bcfe8-2fe8-4f45-aaa2-914755d1de29",
+      "stationId": "187b773b-ec37-49b3-9aff-2fe65ce9fdc3"
+    }
+  ]
+}

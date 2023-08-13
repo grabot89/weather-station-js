@@ -1,0 +1,75 @@
+<div class="columns">
+  <div class="column is-one-fifth">
+    <div class="card has-background-black">
+        <span class="icon has-text-info is-large is-pulled-right">
+            <i class="fas fa-2x fa-solid fa-location-dot"></i>
+        </span>
+      <div class="card-content has-text-white">
+        <div class="content mt-3">
+          <h3 class="has-text-white">{{station.name}}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="column is-one-fifth">
+    <div class="card has-background-black">
+      <div class="card-content has-text-white	">
+        <div class="content mt-3">
+          <h3 class="has-text-white">Weather</h3>
+          <br>
+          {{station.latestReading.status}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="column is-one-fifth">
+    <div class="card has-background-black">
+                <span class="icon has-text-danger is-large is-pulled-right">
+                    <i class="fas fa-2x fa-solid fa-temperature-half"></i>
+                </span>
+      <div class="card-content has-text-white	">
+        <div class="content mt-3">
+          <h3 class="has-text-white">Temp</h3>
+          <br>
+          {{station.latestReading.temperature}} °C
+          <br>
+          {{station.latestReading.temperatureFahrenheit}} °F
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="column is-one-fifth">
+    <div class="card has-background-black">
+                <span class="icon has-text-warning is-large is-pulled-right">
+                    <i class="fas fa-2x fa-solid fa-tornado"></i>
+                </span>
+      <div class="card-content has-text-white	">
+        <div class="content mt-3">
+          <h3 class="has-text-white">Wind</h3>
+          <br>
+          {{station.latestReading.windBeaufort}} bft
+          <br>
+          {{station.latestReading.compassDirection}}
+          <br>
+          Feels like
+          <br>
+          {{station.latestReading.windChill}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="column is-one-fifth">
+    <div class="card has-background-black">
+        <span class="icon has-text-success is-large is-pulled-right">
+            <i class="fas fa-2x fa-solid fa-hurricane"></i>
+        </span>
+      <div class="card-content has-text-white	">
+        <div class="content mt-3">
+          <h3 class="has-text-white">Pressure</h3>
+          <br>
+          {{station.latestReading.pressure}} hpa
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
