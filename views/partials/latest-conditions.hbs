@@ -2,17 +2,47 @@
   <div class="column is-one-fifth">
     <div class="card has-background-black">
         <span class="icon has-text-info is-large is-pulled-right">
-            <i class="fas fa-2x fa-solid fa-location-dot"></i>
+            {{>icons/location}}
         </span>
       <div class="card-content has-text-white">
         <div class="content mt-3">
           <h3 class="has-text-white">{{station.name}}</h3>
+          <br>
+          Lat: {{station.latitude}}
+          <br>
+          Lng: {{station.longitude}}
         </div>
       </div>
     </div>
   </div>
   <div class="column is-one-fifth">
     <div class="card has-background-black">
+        <span class="icon has-text-info is-large is-pulled-right">
+                    {{#ifeq station.latestReading.status 'Clear'}}
+                        {{>icons/clear}}
+                    {{/ifeq}}
+                    {{#ifeq station.latestReading.status 'Partial Clouds'}}
+                        {{>icons/partial-clouds}}
+                    {{/ifeq}}
+                    {{#ifeq station.latestReading.status 'Cloudy'}}
+                        {{>icons/cloudy}}
+                    {{/ifeq}}
+                    {{#ifeq station.latestReading.status 'Light Showers'}}
+                        {{>icons/light-showers}}
+                    {{/ifeq}}
+                    {{#ifeq station.latestReading.status 'Heavy Showers'}}
+                        {{>icons/heavy-showers}}
+                    {{/ifeq}}
+                    {{#ifeq station.latestReading.status 'Rain'}}
+                        {{>icons/rain}}
+                    {{/ifeq}}
+                    {{#ifeq station.latestReading.status 'Snow'}}
+                        {{>icons/snow}}
+                    {{/ifeq}}
+                    {{#ifeq station.latestReading.status 'Thunder'}}
+                        {{>icons/thunder}}
+                    {{/ifeq}}
+                </span>
       <div class="card-content has-text-white	">
         <div class="content mt-3">
           <h3 class="has-text-white">Weather</h3>
@@ -24,9 +54,9 @@
   </div>
   <div class="column is-one-fifth">
     <div class="card has-background-black">
-                <span class="icon has-text-danger is-large is-pulled-right">
-                    <i class="fas fa-2x fa-solid fa-temperature-half"></i>
-                </span>
+        <span class="icon has-text-info is-large is-pulled-right">
+            {{>icons/thermometer}}
+        </span>
       <div class="card-content has-text-white	">
         <div class="content mt-3">
           <h3 class="has-text-white">Temp</h3>
@@ -34,15 +64,19 @@
           {{station.latestReading.temperature}} °C
           <br>
           {{station.latestReading.temperatureFahrenheit}} °F
+          <br>
+          Max: {{station.maxTemperature}}
+          <br>
+          Min: {{station.minTemperature}}
         </div>
       </div>
     </div>
   </div>
   <div class="column is-one-fifth">
     <div class="card has-background-black">
-                <span class="icon has-text-warning is-large is-pulled-right">
-                    <i class="fas fa-2x fa-solid fa-tornado"></i>
-                </span>
+        <span class="icon has-text-info is-large is-pulled-right">
+            {{>icons/wind}}
+        </span>
       <div class="card-content has-text-white	">
         <div class="content mt-3">
           <h3 class="has-text-white">Wind</h3>
@@ -54,20 +88,28 @@
           Feels like
           <br>
           {{station.latestReading.windChill}}
+          <br>
+          Max: {{station.maxWind}}
+          <br>
+          Min: {{station.minWind}}
         </div>
       </div>
     </div>
   </div>
   <div class="column is-one-fifth">
     <div class="card has-background-black">
-        <span class="icon has-text-success is-large is-pulled-right">
-            <i class="fas fa-2x fa-solid fa-hurricane"></i>
+        <span class="icon has-text-info is-large is-pulled-right">
+            {{>icons/pressure}}
         </span>
       <div class="card-content has-text-white	">
         <div class="content mt-3">
           <h3 class="has-text-white">Pressure</h3>
           <br>
           {{station.latestReading.pressure}} hpa
+          <br>
+          Max: {{station.maxPressure}}
+          <br>
+          Min: {{station.minPressure}}
         </div>
       </div>
     </div>

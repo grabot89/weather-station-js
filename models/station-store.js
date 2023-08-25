@@ -23,6 +23,11 @@ export const stationStore = {
     return list;
   },
 
+  async getStationsByUserId(userid) {
+    await db.read();
+    return db.data.stations.filter((station) => station.userid === userid);
+  },
+
   async deleteStationById(id) {
     await db.read();
     const index = db.data.stations.findIndex((station) => station._id === id);

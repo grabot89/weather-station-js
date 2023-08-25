@@ -27,6 +27,48 @@ export const readingStore = {
         await db.read();
         return db.data.readings.findLast((reading) => reading.stationId === stationId);
     },
+
+    async getMaxTemperatureByStationId(stationId) {
+        await db.read();
+        const readings = db.data.readings.filter((reading) => reading.stationId === stationId)
+            .map((reading) => reading.temperature);
+        return Math.max.apply(Math, readings);
+    },
+
+    async getMinTemperatureByStationId(stationId) {
+        await db.read();
+        const readings = db.data.readings.filter((reading) => reading.stationId === stationId)
+            .map((reading) => reading.temperature);
+        return Math.min.apply(Math, readings);
+    },
+
+    async getMaxWindByStationId(stationId) {
+        await db.read();
+        const readings = db.data.readings.filter((reading) => reading.stationId === stationId)
+            .map((reading) => reading.windSpeed);
+        return Math.max.apply(Math, readings);
+    },
+
+    async getMinWindByStationId(stationId) {
+        await db.read();
+        const readings = db.data.readings.filter((reading) => reading.stationId === stationId)
+            .map((reading) => reading.windSpeed);
+        return Math.min.apply(Math, readings);
+    },
+
+    async getMaxPressureByStationId(stationId) {
+        await db.read();
+        const readings = db.data.readings.filter((reading) => reading.stationId === stationId)
+            .map((reading) => reading.pressure);
+        return Math.max.apply(Math, readings);
+    },
+
+    async getMinPressureByStationId(stationId) {
+        await db.read();
+        const readings = db.data.readings.filter((reading) => reading.stationId === stationId)
+            .map((reading) => reading.pressure);
+        return Math.min.apply(Math, readings);
+    },
   
     async getReadingById(id) {
       await db.read();

@@ -7,6 +7,12 @@ export const stationController = {
         const station = await stationStore.getStationById(request.params.id);
         const readings = await readingStore.getReadingsByStationId(station._id);
         const latestReading = await readingStore.getLatestReadingByStationId(station._id);
+        const maxTemperature = await readingStore.getMaxTemperatureByStationId(station._id);
+        const minTemperature = await readingStore.getMinTemperatureByStationId(station._id);
+        const maxWind = await readingStore.getMaxWindByStationId(station._id);
+        const minWind = await readingStore.getMinWindByStationId(station._id);
+        const maxPressure = await readingStore.getMaxPressureByStationId(station._id);
+        const minPressure = await readingStore.getMinPressureByStationId(station._id);
         if (latestReading !== undefined) {
             latestReading.windBeaufort = getWindBeaufort(latestReading.windSpeed);
             latestReading.status = getStatusForCode(latestReading.code);
@@ -17,6 +23,12 @@ export const stationController = {
             console.log("Latest Reading", latestReading);
             station.readings = readings;
             station.latestReading = latestReading;
+            station.maxTemperature = maxTemperature;
+            station.minTemperature = minTemperature;
+            station.maxWind = maxWind;
+            station.minWind = minWind;
+            station.maxPressure = maxPressure;
+            station.minPressure = minPressure;
         }
         
         const viewData = {

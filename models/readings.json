@@ -18,6 +18,24 @@
       "pressure": 1004,
       "_id": "8e0bcfe8-2fe8-4f45-aaa2-914755d1de29",
       "stationId": "187b773b-ec37-49b3-9aff-2fe65ce9fdc3"
+    },
+    {
+      "code": 200,
+      "temperature": 12.5,
+      "windSpeed": 45.6,
+      "windDirection": 124,
+      "pressure": 998,
+      "_id": "b716a2c0-0d1d-440b-80a6-7119d671fa51",
+      "stationId": "e49438b1-d14a-43fc-8e39-7fa4abd27b8e"
+    },
+    {
+      "code": 400,
+      "temperature": 14.8,
+      "windSpeed": 23.5,
+      "windDirection": 169,
+      "pressure": 1004,
+      "_id": "a0234f04-1470-4fa5-9508-b05aeb77aa54",
+      "stationId": "e49438b1-d14a-43fc-8e39-7fa4abd27b8e"
     }
   ]
 }
