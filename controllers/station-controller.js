@@ -1,6 +1,6 @@
 import { readingStore } from "../models/reading-store.js";
 import { stationStore } from "../models/station-store.js";
-import { getWindBeaufort, getStatusForCode, getTemperatureFahrenheit, getCompassDirection, getWindChill } from "../utils/station-utils.js";
+import { getWindBeaufort, getStatusForCode, getTemperatureFahrenheit, getCompassDirection, getWindChill, getTempTrend, getWindTrend, getPressureTrend } from "../utils/station-utils.js";
 
 export const stationController = {
     async index(request, response) {
@@ -29,6 +29,9 @@ export const stationController = {
             station.minWind = minWind;
             station.maxPressure = maxPressure;
             station.minPressure = minPressure;
+            station.tempTrend = getTempTrend(readings);
+            station.windTrend = getWindTrend(readings);
+            station.pressureTrend = getPressureTrend(readings);
         }
         
         const viewData = {
@@ -39,8 +42,11 @@ export const stationController = {
     },
 
     async addReading(request, response) {
+        var timestamp = Date.now();
+        var dateTime = new Date(timestamp);
         const station = await stationStore.getStationById(request.params.id);
         const newReading = {
+            dateTime: dateTime,
             code: Number(request.body.code),
             temperature: Number(request.body.temperature),
             windSpeed: Number(request.body.windSpeed),

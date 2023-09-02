@@ -85,3 +85,66 @@ export function getWindChill( windSpeed, celsius) {
     let chill = 13.12 + 0.6215 * celsius - 11.37 * windSpeed ** 0.16 + 0.3965 * celsius * windSpeed ** 0.16;
     return Math.round(chill * 10) / 10;
   }
+
+  export function getTempTrend(readings) {
+    if (readings.length < 3) {
+      return "Steady";
+    }
+
+    const latest = readings[readings.length-1];
+    const secondLatest = readings[readings.length-2];
+    const thirdLatest = readings[readings.length-3];
+
+    if (latest.temperature > secondLatest.temperature
+        && secondLatest.temperature > thirdLatest.temperature) {
+      return "Rising";
+    }
+
+    if (latest.temperature < secondLatest.temperature
+        && secondLatest.temperature < thirdLatest.temperature) {
+      return "Falling";
+    }
+    return "Steady";
+  }
+
+  export function getWindTrend(readings) {
+    if (readings.length < 3) {
+      return "Steady";
+    }
+
+    const latest = readings[readings.length-1];
+    const secondLatest = readings[readings.length-2];
+    const thirdLatest = readings[readings.length-3];
+
+    if (latest.windSpeed > secondLatest.windSpeed
+        && secondLatest.windSpeed > thirdLatest.windSpeed) {
+      return "Rising";
+    }
+
+    if (latest.windSpeed < secondLatest.windSpeed
+        && secondLatest.windSpeed < thirdLatest.windSpeed) {
+      return "Falling";
+    }
+    return "Steady";
+  }
+
+  export function getPressureTrend(readings) {
+    if (readings.length < 3) {
+      return "Steady";
+    }
+
+    const latest = readings[readings.length-1];
+    const secondLatest = readings[readings.length-2];
+    const thirdLatest = readings[readings.length-3];
+
+    if (latest.pressure > secondLatest.pressure
+        && secondLatest.pressure > thirdLatest.pressure) {
+      return "Rising";
+    }
+
+    if (latest.pressure < secondLatest.pressure
+        && secondLatest.pressure < thirdLatest.pressure) {
+      return "Falling";
+    }
+    return "Steady";
+  }

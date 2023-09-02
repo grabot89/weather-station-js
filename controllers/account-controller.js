@@ -49,4 +49,37 @@ export const accountController = {
     const userEmail = request.cookies.station;
     return await userStore.getUserByEmail(userEmail);
   },
+
+  async listUsers(request, response) {
+    const viewData = {
+      title: "List Users",
+      users: await userStore.getAllUsers(),
+    };
+    response.render("list-users", viewData);
+  },
+
+  async showUser(request, response) {
+    const userId = request.params.userid;
+    const user = await userStore.getUserById(userId);
+    const viewData = {
+      title: "Edit User",
+      user: user,
+    };
+    response.render("user-view", viewData);
+  },
+
+  async updateUser(request, response) {
+    const userId = request.params.userid;
+    console.log("User", userId);
+    const updatedUser = {
+      firstName: request.body.firstName,
+      lastName: request.body.lastName,
+      email: request.body.email,
+      password: request.body.password,
+    };
+    console.log("Updated User", updatedUser);
+    console.log(`Updating User ${userId}`);
+    await userStore.updateUser(userId, updatedUser);
+    response.redirect("/dashboard");
+  },
 };

@@ -6,11 +6,11 @@
         </span>
       <div class="card-content has-text-white">
         <div class="content mt-3">
-          <h3 class="has-text-white">{{station.name}}</h3>
+          <h3 class="has-text-white">{{name}}</h3>
           <br>
-          Lat: {{station.latitude}}
+          Lat: {{latitude}}
           <br>
-          Lng: {{station.longitude}}
+          Lng: {{longitude}}
         </div>
       </div>
     </div>
@@ -18,28 +18,28 @@
   <div class="column is-one-fifth">
     <div class="card has-background-black">
         <span class="icon has-text-info is-large is-pulled-right">
-                    {{#ifeq station.latestReading.status 'Clear'}}
+                    {{#ifeq latestReading.status 'Clear'}}
                         {{>icons/clear}}
                     {{/ifeq}}
-                    {{#ifeq station.latestReading.status 'Partial Clouds'}}
+                    {{#ifeq latestReading.status 'Partial Clouds'}}
                         {{>icons/partial-clouds}}
                     {{/ifeq}}
-                    {{#ifeq station.latestReading.status 'Cloudy'}}
+                    {{#ifeq latestReading.status 'Cloudy'}}
                         {{>icons/cloudy}}
                     {{/ifeq}}
-                    {{#ifeq station.latestReading.status 'Light Showers'}}
+                    {{#ifeq latestReading.status 'Light Showers'}}
                         {{>icons/light-showers}}
                     {{/ifeq}}
-                    {{#ifeq station.latestReading.status 'Heavy Showers'}}
+                    {{#ifeq latestReading.status 'Heavy Showers'}}
                         {{>icons/heavy-showers}}
                     {{/ifeq}}
-                    {{#ifeq station.latestReading.status 'Rain'}}
+                    {{#ifeq latestReading.status 'Rain'}}
                         {{>icons/rain}}
                     {{/ifeq}}
-                    {{#ifeq station.latestReading.status 'Snow'}}
+                    {{#ifeq latestReading.status 'Snow'}}
                         {{>icons/snow}}
                     {{/ifeq}}
-                    {{#ifeq station.latestReading.status 'Thunder'}}
+                    {{#ifeq latestReading.status 'Thunder'}}
                         {{>icons/thunder}}
                     {{/ifeq}}
                 </span>
@@ -47,7 +47,7 @@
         <div class="content mt-3">
           <h3 class="has-text-white">Weather</h3>
           <br>
-          {{station.latestReading.status}}
+          {{latestReading.status}}
         </div>
       </div>
     </div>
@@ -61,21 +61,13 @@
         <div class="content mt-3">
           <h3 class="has-text-white">Temp</h3>
           <br>
-          {{station.latestReading.temperature}} °C
+          {{latestReading.temperature}} °C
           <br>
-          {{station.latestReading.temperatureFahrenheit}} °F
-          <span class="is-large is-pulled-right">
-            {{#ifeq station.tempTrend 'Rising'}}
-                {{>icons/rising}}
-            {{/ifeq}}
-            {{#ifeq station.tempTrend 'Falling'}}
-                {{>icons/falling}}
-            {{/ifeq}}
-          </span>
+          {{latestReading.temperatureFahrenheit}} °F
           <br>
-          Max: {{station.maxTemperature}}
+          Max: {{maxTemperature}}
           <br>
-          Min: {{station.minTemperature}}
+          Min: {{minTemperature}}
         </div>
       </div>
     </div>
@@ -89,25 +81,17 @@
         <div class="content mt-3">
           <h3 class="has-text-white">Wind</h3>
           <br>
-          {{station.latestReading.windBeaufort}} bft
+          {{latestReading.windBeaufort}} bft
           <br>
-          {{station.latestReading.compassDirection}}
-          <span class="is-large is-pulled-right">
-            {{#ifeq station.windTrend 'Rising'}}
-                {{>icons/rising}}
-            {{/ifeq}}
-            {{#ifeq station.windTrend 'Falling'}}
-                {{>icons/falling}}
-            {{/ifeq}}
-          </span>
+          {{latestReading.compassDirection}}
           <br>
           Feels like
           <br>
-          {{station.latestReading.windChill}}
+          {{latestReading.windChill}}
           <br>
-          Max: {{station.maxWind}}
+          Max: {{maxWind}}
           <br>
-          Min: {{station.minWind}}
+          Min: {{minWind}}
         </div>
       </div>
     </div>
@@ -121,19 +105,11 @@
         <div class="content mt-3">
           <h3 class="has-text-white">Pressure</h3>
           <br>
-          {{station.latestReading.pressure}} hpa
+          {{latestReading.pressure}} hpa
           <br>
-          Max: {{station.maxPressure}}
-          <span class="is-large is-pulled-right">
-            {{#ifeq station.pressureTrend 'Rising'}}
-                {{>icons/rising}}
-            {{/ifeq}}
-            {{#ifeq station.pressureTrend 'Falling'}}
-                {{>icons/falling}}
-            {{/ifeq}}
-          </span>
+          Max: {{maxPressure}}
           <br>
-          Min: {{station.minPressure}}
+          Min: {{minPressure}}
         </div>
       </div>
     </div>
