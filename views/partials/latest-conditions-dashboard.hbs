@@ -64,6 +64,14 @@
           {{latestReading.temperature}} °C
           <br>
           {{latestReading.temperatureFahrenheit}} °F
+          <span class="is-large is-pulled-right">
+            {{#ifeq tempTrend 'Rising'}}
+                {{>icons/rising}}
+            {{/ifeq}}
+            {{#ifeq tempTrend 'Falling'}}
+                {{>icons/falling}}
+            {{/ifeq}}
+          </span>
           <br>
           Max: {{maxTemperature}}
           <br>
@@ -84,6 +92,14 @@
           {{latestReading.windBeaufort}} bft
           <br>
           {{latestReading.compassDirection}}
+          <span class="is-large is-pulled-right">
+            {{#ifeq windTrend 'Rising'}}
+                {{>icons/rising}}
+            {{/ifeq}}
+            {{#ifeq windTrend 'Falling'}}
+                {{>icons/falling}}
+            {{/ifeq}}
+          </span>
           <br>
           Feels like
           <br>
@@ -108,6 +124,14 @@
           {{latestReading.pressure}} hpa
           <br>
           Max: {{maxPressure}}
+          <span class="is-large is-pulled-right">
+            {{#ifeq pressureTrend 'Rising'}}
+                {{>icons/rising}}
+            {{/ifeq}}
+            {{#ifeq pressureTrend 'Falling'}}
+                {{>icons/falling}}
+            {{/ifeq}}
+          </span>
           <br>
           Min: {{minPressure}}
         </div>
